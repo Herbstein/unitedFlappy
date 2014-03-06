@@ -3,6 +3,8 @@ using System.Collections;
 
 public class killChecker : MonoBehaviour {
 
+
+
 	// Use this for initialization
 	void Start () 
     {
@@ -24,8 +26,14 @@ public class killChecker : MonoBehaviour {
         }
     }
 
-    void killBird()
+    private void killBird()
     {
-        Time.timeScale = 0;  
+        Time.timeScale = 0;
+        loadFailMenu();
+    }
+
+    private void loadFailMenu()
+    {
+       
     }
 }
