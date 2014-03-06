@@ -24,21 +24,18 @@ public class killChecker : MonoBehaviour {
 	
 	}
 
-    // Called on trigger enter
     void OnTriggerEnter(Collider other)
     {
+
+        // Kills the bird if it hits a pipe
         if (other.gameObject.tag == "pipe")
         {
             killBird();
         }
     }
 
+    // Tells the OnGUI function to draw the failed function
     private void killBird()
-    {
-        loadFailMenu();
-    }
-
-    private void loadFailMenu()
     {
         showFailedMenu = true;
     }
@@ -68,13 +65,15 @@ public class killChecker : MonoBehaviour {
         {
             Time.timeScale = 0;
 
-            if(GUI.Button(new Rect((Screen.width/2) + 55,(Screen.height/2) - 12, 100, 25), "Retry")) //Retry button. When pressed, the scene is reloaded
+            // Reloads the level, when the retry button is pressed
+            if(GUI.Button(new Rect((Screen.width/2) + 55,(Screen.height/2) - 12, 100, 25), "Retry"))
             {
                 showFailedMenu = false;
                 isPaused = false;
                 Application.LoadLevel(Application.loadedLevel);
             }
 
+            // Loads the Main Menu if the Main Menu button is pressed
             if(GUI.Button(new Rect((Screen.width/2)-66, (Screen.height/2) - 12, 100, 25), "Main Menu"))
             {
                 Application.LoadLevel(0);
