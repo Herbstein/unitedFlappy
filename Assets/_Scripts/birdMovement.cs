@@ -15,10 +15,10 @@ public class birdMovement : MonoBehaviour {
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            rigidbody.velocity = new Vector3(0, 10, 0);
+            rigidbody.velocity = new Vector3(0, 7, 0);
         }
 
-        transform.Translate(new Vector3(0, 0, 6) * Time.deltaTime, Space.World);
+        transform.Translate(new Vector3(0, 0, 3) * Time.deltaTime, Space.World);
 	
 	}
 }
