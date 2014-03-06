@@ -3,7 +3,8 @@ using System.Collections;
 
 public class birdMovement : MonoBehaviour {
 
-    int speed;
+    int horizontalVelocity;
+    int jumpVelocity;
 
 	// Use this for initialization
 	void Start () {
@@ -11,14 +12,16 @@ public class birdMovement : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            rigidbody.velocity = new Vector3(0, 7, 0);
+            rigidbody.velocity = new Vector3(0, 7, 2);
         }
-
-        transform.Translate(new Vector3(0, 0, 3) * Time.deltaTime, Space.World);
+        else
+        {
+            rigidbody.velocity = new Vector3(0, rigidbody.velocity.y, 2);
+        }
 	
 	}
 }
