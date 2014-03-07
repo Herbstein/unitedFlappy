@@ -3,9 +3,8 @@ using System.Collections;
 
 public class killChecker : MonoBehaviour {
 
-    bool isPlaying = true;
     bool isPaused = false;
-    bool showFailedMenu = false;
+    bool hasFailed = false;
 
     void Awake()
     {
@@ -37,7 +36,7 @@ public class killChecker : MonoBehaviour {
     // Tells the OnGUI function to draw the failed function
     private void killBird()
     {
-        showFailedMenu = true;
+        hasFailed = true;
     }
 
     void OnGUI()
@@ -61,14 +60,14 @@ public class killChecker : MonoBehaviour {
             }
         }
 
-        if(showFailedMenu)
+        if(hasFailed)
         {
             Time.timeScale = 0;
 
             // Reloads the level, when the retry button is pressed
             if(GUI.Button(new Rect((Screen.width/2) + 55,(Screen.height/2) - 12, 100, 25), "Retry"))
             {
-                showFailedMenu = false;
+                hasFailed = false;
                 isPaused = false;
                 Application.LoadLevel(Application.loadedLevel);
             }
